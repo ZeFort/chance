@@ -1,9 +1,10 @@
 # chance
 Chance is a minimalist generator of random strings, numbers, etc. written in **Go**. Based on [Chance.js](http://chancejs.com/)
 
+[![Build Status](https://travis-ci.org/ZeFort/chance.svg)](https://travis-ci.org/ZeFort/chance) [![GoDoc](https://godoc.org/github.com/ZeFort/chance?status.svg)](https://godoc.org/github.com/ZeFort/chance)
 
 #### Notes
-Documentation is available here: [godoc.org]().
+Documentation is available here: [godoc.org](https://godoc.org/github.com/ZeFort/chance).
 Full information about code coverage is also available here: [chance on gocover.io]().
 
 #### Support
