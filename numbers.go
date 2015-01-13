@@ -1,5 +1,5 @@
 package chance
 
-func (chance *Chance) RInt() int64 {
-	return chance.r.Intn(10)
+func (chance *Chance) RInt() int {
+	return chance.r.Intn(1)
 }

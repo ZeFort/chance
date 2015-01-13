@@ -7,20 +7,20 @@ import (
 
 type Chance struct {
 	seed int64
-	r Rand
+	r *rand.Rand
 }
 
 func New() *Chance {
 	seed := time.Now().UTC().UnixNano()
 	return &Chance{
 		seed,
-		rand.New(seed),
+		rand.New(rand.NewSource(seed)),
 	};
 }
 
-func New(seed int64) *Chance {
+func NewS(seed int64) *Chance {
 	return &Chance{
 		seed,
-		rand.New(seed),
+		rand.New(rand.NewSource(seed)),
 	};
 }
