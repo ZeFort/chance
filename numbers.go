@@ -7,15 +7,11 @@ func (chance *Chance) Float() float64 {
 	if (chance.Bool()) {
 		sign = -1
 	}
-	return math.MaxInt64 * chance.r.Float64() * sign
+	return float64(math.MaxInt64) * chance.r.Float64() * float64(sign)
 }
 
 func (chance *Chance) FloatN(max float64) float64 {
-	sign := 1
-	if (chance.Bool()) {
-		sign = -1
-	}
-	return chance.r.Float63n(max) * sign
+	return chance.FloatBtw(0, max - 1)
 }
 
 func (chance *Chance) FloatBtw(min float64, max float64) float64 {
@@ -38,7 +34,7 @@ func (chance *Chance) IntBtw(min int, max int) int {
 }
 
 func (chance *Chance) Natural() int {
-	return chance.r.Intn() + 1
+	return chance.r.Int() + 1
 }
 
 func (chance *Chance) NaturalN(max int) int {

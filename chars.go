@@ -8,33 +8,33 @@ const (
 	lowerChars = "abcdefghijklmnopqrstuvwxyz"
 )
 
-func (chance *Chance) AlphaChar() int {
+func (chance *Chance) AlphaChar() uint8 {
 	l := len(alphaChars)
-	return alphaChars[chance.r.NaturalN(l)]
+	return alphaChars[chance.NaturalN(l)]
 }
 
-func (chance *Chance) LowerChar() int {
+func (chance *Chance) LowerChar() uint8 {
 	l := len(lowerChars)
-	return lowerChars[chance.r.NaturalN(l)]
+	return lowerChars[chance.NaturalN(l)]
 }
 
-func (chance * Chance) Char() {
+func (chance * Chance) Char() uint8 {
 	l := len(chars)
-	return chars[chance.r.NaturalN(l)]
+	return chars[chance.NaturalN(l)]
 }
 
-func (chance * Chance) NumChar() {
+func (chance * Chance) NumChar() uint8 {
 	l := len(numChars)
-	return numChars[chance.r.NaturalN(l)]
+	return numChars[chance.NaturalN(l)]
 }
 
-func (chance * Chance) UpperChar() {
+func (chance * Chance) UpperChar() uint8 {
 	l := len(upperChars)
-	return upperChars[chance.r.NaturalN(l)]
+	return upperChars[chance.NaturalN(l)]
 }
 
-func (chance * Chance) AnyChar(str string) {
+func (chance * Chance) AnyChar(str string) uint8{
 	l := len(str)
-	return str[chance.r.NaturalN(l)]
+	return str[chance.NaturalN(l)]
 }
 

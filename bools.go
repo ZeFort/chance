@@ -5,13 +5,9 @@ func (chance *Chance) BoolWithChance(likeliness int) bool {
 		return false
 	}
 	f := chance.r.Float64() * 100
-	return likeliness <= f
+	return float64(likeliness) <= f
 }
 
-func (chance *Chance) Bool() int {
-	if (chance.r.Intn(1) == 1){
-		return true
-	}else{
-		return false
-	}
+func (chance *Chance) Bool() bool {
+	return chance.r.Intn(2) == 1
 }
