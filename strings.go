@@ -6,7 +6,7 @@ import (
 
 func (chance *Chance) String() string {
 	var buffer bytes.Buffer
-	l := chance.Natural()
+	l := chance.NaturalN(100)
 	for i := 0; i < l; i++ {
 		buffer.WriteString(string(chance.Char()))
 	}
@@ -23,7 +23,7 @@ func (chance *Chance) StringN(l int) string {
 
 func (chance *Chance) AnyString(str string) string {
 	var buffer bytes.Buffer
-	l := chance.Natural()
+	l := chance.NaturalN(100)
 	for i := 0; i < l; i++ {
 		buffer.WriteString(string(chance.AnyChar(str)))
 	}
