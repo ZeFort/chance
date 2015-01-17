@@ -4,17 +4,17 @@ import (
 	"fmt"
 )
 
-func (chance *Chance) Syllable(options string) string {
-	if options == "VC" {
-		return fmt.Sprintf("%s%s", chance.VowelChar() , chance.ConsonantChar());
-	}
-	if options == "CVC" {
+func (chance *Chance) Syllable() string {
+	if chance.Bool() {
+		options := chance.AnyStringN("VC",2)
+		if options == "VC" || options == "CC" {
+			return fmt.Sprintf("%s%s", chance.VowelChar(), chance.ConsonantChar());
+		}else{
+			return fmt.Sprintf("%s%s", chance.ConsonantChar(), chance.VowelChar());
+		}
+	}else {
 		return fmt.Sprintf("%s%s%s", chance.ConsonantChar(), chance.VowelChar(), chance.ConsonantChar());
 	}
-	if options == "CV" {
-		return fmt.Sprintf("%s%s", chance.ConsonantChar(), chance.VowelChar());
-	}
-	return fmt.Sprintf("%s%s", chance.ConsonantChar(), chance.VowelChar());
 }
 
 func (chance *Chance) Word() string{
@@ -24,11 +24,7 @@ func (chance *Chance) Word() string{
 		str[i] = ""
 	}
 	for i := 0; i < n; i++ {
-		if chance.Bool(){
-			str[i] = chance.Syllable("VC")
-		}else{
-			str[i] = chance.Syllable("CVC")
-		}
+		str[i] = chance.Syllable()
 	}
 	return fmt.Sprintf("%s%s%s%s",str[0],str[1],str[2],str[3]);
 }
