@@ -7,7 +7,7 @@ import (
 
 type Chance struct {
 	seed int64
-	r *rand.Rand
+	r    *rand.Rand
 }
 
 func New() *Chance {
@@ -15,12 +15,12 @@ func New() *Chance {
 	return &Chance{
 		seed,
 		rand.New(rand.NewSource(seed)),
-	};
+	}
 }
 
 func NewS(seed int64) *Chance {
 	return &Chance{
 		seed,
 		rand.New(rand.NewSource(seed)),
-	};
+	}
 }
